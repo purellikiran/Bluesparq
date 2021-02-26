@@ -1,0 +1,78 @@
+<!-- main app container -->
+<div class="card m-3">
+        <h5 class="card-header">Enter Task Details</h5>
+        <div class="card-body">
+            <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+                <div class="form-row">
+                  
+                    <div class="form-group col-6">
+                        <label>Task Name</label>
+                        <input type="text" formControlName="taskName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.taskName.errors }" />
+                        <div *ngIf="submitted && f.taskName.errors" class="invalid-feedback">
+                            <div *ngIf="f.taskName.errors.required">Task Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                            <label>Task Description</label>
+                            <input type="text" formControlName="taskDescription" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.taskDescription.errors }" />
+                            <div *ngIf="submitted && f.taskDescription.errors" class="invalid-feedback">
+                                <div *ngIf="f.taskDescription.errors.required">Task Description is required</div>
+                            </div>
+                        </div>
+                </div>
+                <div class="form-row">
+                        <div class="form-group col-6">
+                                <label>Priority</label>
+                                <select formControlName="priority" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.priority.errors }">
+                                        <option value=""></option>
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                    </select>
+                                <div *ngIf="submitted && f.priority.errors" class="invalid-feedback">
+                                    <div *ngIf="f.priority.errors.required">Priority is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-6">
+                                    <label>Target Date</label>
+                                    <input type="date" formControlName="targetDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.targetDate.errors }" />
+                                   
+                                    <div *ngIf="submitted && f.targetDate.errors" class="invalid-feedback">
+                                        <div *ngIf="f.targetDate.errors.required">Target Date is required</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                           
+                            <div class="form-row">
+
+                                <div class="form-group col-6">
+                                        <label>Select Users</label>
+                                        <div>
+                                                <select formControlName="users" style="width: 100%">
+                                                        <option [ngValue]="null" disabled></option>
+                                                        <option *ngFor="let user of users" [ngValue]="user.id">{{user.name}}</option>
+                                                      </select>
+                                        <!-- <label
+                                        formArrayName="users"
+                                        *ngFor="let user of users; let i = index"
+                                      >
+                                        <input type="checkbox" [formControlName]="i" />
+                                        {{users[i].name}}
+                                      </label> -->
+                                    
+                                    </div>
+                                </div>
+
+
+                   
+                </div>
+               
+               
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    

@@ -1,0 +1,40 @@
+<!-- main app container -->
+<div class="card m-3">
+        <h5 class="card-header">Tasks List</h5>
+        <div class="card-body table-responsive">
+                
+
+                                <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Task Name</th>
+                                                <th>Task Description</th>
+                                                <th>Priority</th>
+                                                <th>Created Date</th>
+                                                <th>Target Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let task of tasks; let i = index">
+                                                <th>{{ i+1 }}</th>
+                                                <td>{{ task.task_name }}</td>
+                                                <td>{{ task.task_description }}</td>
+                                                <td>{{ task.priority }}</td>
+                                                <td>{{ task.created_date }}</td>
+                                                <td>{{ task.target_date }}</td>
+                                                
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+              
+                           
+                         
+               
+               
+                
+            
+        </div>
+    </div>
+    
